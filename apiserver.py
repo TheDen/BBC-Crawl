@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 import flask
 from flask import Flask, request
@@ -15,7 +15,7 @@ db = client.admin
 collection = db.bbcdata
 app = Flask(__name__)
 
-#data = list(collection.find())
+data = list(collection.find())
 
 from flask import render_template
 
