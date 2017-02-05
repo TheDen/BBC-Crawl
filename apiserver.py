@@ -22,6 +22,7 @@ from flask import render_template
 @app.errorhandler(404)
 def page_not_found(e):
     return flask.make_response("page not founditry. Try /api/v1/?query=yourquery", 404)
+
 @app.route("/")
 def hello():
     return "hit /api/v1/?query=yourquery"
@@ -36,7 +37,7 @@ def show_user_profile():
    objectid = []
    j = 0
    for i in data:
-    if query.lower() in i.values()[3].lower():
+    if query.lower() in i.values()[0].lower() or query.lower() in i.values()[3].lower():
      print j
      objectid.append(j)
     j += 1
