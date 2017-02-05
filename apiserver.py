@@ -6,16 +6,25 @@ from flask_restful import Resource, Api
 import json
 from bson.objectid import ObjectId
 from pymongo import MongoClient
+import os
+import ssl
 
-client = MongoClient()
-db = client.test
-collection = db.bbcdw6
-
+MONGODB_URL = os.environ.get('MONGODB_URL')
+client = MongoClient(MONGODB_URL,ssl_ca_certs="./sslfile.cert")
+db = client.admin
+collection = db.bbcdata
 app = Flask(__name__)
 
+#data = list(collection.find())
+
+from flask import render_template
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return flask.make_response("page not founditry. Try /api/v1/?query=yourquery", 404)
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "hit /api/v1/?query=yourquery"
 
 @app.route('/api/v1/')
 def show_user_profile():
@@ -23,19 +32,21 @@ def show_user_profile():
 
    if not query:
     return flask.make_response("need nonempty query parameter", 200)
-
-   data = list(collection.find())
    
    objectid = []
+   j = 0
    for i in data:
     if query.lower() in i.values()[3].lower():
-      objectid.append(i.values()[2])
+     print j
+     objectid.append(j)
+    j += 1
+
    if len(objectid) == 0:
      return flask.make_response("no match", 200)
    resp = []
-   for i in range(0,len(objectid)):
-    match = collection.find_one({'_id': ObjectId(objectid[i])})
-    resp.append(json.dumps({'url': match.values()[1] , 'headline': match.values()[0], 'article': match.values()[3] }))
+   for i in objectid:
+    match = data
+    resp.append(json.dumps({'url': match[i].values()[1] , 'headline': match[i].values()[0], 'article': match[i].values()[3] }))
     
    response_str = json.dumps(resp, sort_keys=False, separators=(',', ':')).replace('["','[').replace('"]',']').replace("\\\"", "\"").replace("\\\\\"", "\\\"").replace("}\"", "}").replace("\"{", "{")
    response = flask.make_response(response_str, 200)
