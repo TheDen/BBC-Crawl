@@ -25,6 +25,11 @@ sudo apt-get update
 sudo apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
 ```
 ### Run
+
+`MONGODB_URL` needs to be exported to connect to the compose db:
+
+`export MONGODB_URL=mongodb://$username:$password@aws-us-east-1-portal.9.dblayer.com:16943/admin`
+
 To run the spider:
 
 `make run-spider`
