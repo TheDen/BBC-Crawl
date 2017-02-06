@@ -72,7 +72,7 @@ class bbcspider(scrapy.Spider):
           callback=self.urlparse)
 
  def urlparse(self, response):
-  # bbc.com articles have a 8 digits in the url
+  # bbc.com articles have 8 digits in the url
   match = re.search('[0-9]{8}',response.url)
   if match:
     url = response.url
