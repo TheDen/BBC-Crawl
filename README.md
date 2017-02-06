@@ -24,6 +24,11 @@ Ubuntu might need certain prereqs:
 sudo apt-get update
 sudo apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
 ```
+
+### Test: 
+
+For a very simple test on localhost: `./flaskr_tests.py`
+
 ### Run
 
 `MONGODB_URL` needs to be exported to connect to the compose db:
