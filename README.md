@@ -46,6 +46,6 @@ To import the db to compose:
 
 Once the server is running, for example a query for the word `sydney` on bbc.com can be made at the enpoint:
 
-`http://104.236.85.149:5000/api/v1/articles/?query=sydney`
+http://104.236.85.149:5000/api/v1/articles/?query=sydney
 
 
