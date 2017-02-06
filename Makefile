@@ -22,6 +22,8 @@ clean:
 db-import:
 	mongoimport -u $(USER)- p $(PASS)--port 16943 --db $(DB) --collection $(COLLECTION) --ssl --sslCAFile $(SSLCERT) --host $(HOST) --file $(OUTPUTFILE) --jsonArray --drop --batchSize=1
 
+test:
+	./flaskr_tests.py
 
 install: 
 	pip install -r requirements.txt
