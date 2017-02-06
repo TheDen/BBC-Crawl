@@ -2,9 +2,9 @@
 
 Scrapes articles from www.bbc.com using `scrapy`, and creates an api using `flask` to query the articles for keywords.
 
-Live version: 104.236.85.149
+Live version: http://104.236.85.149:5000
 
-Example query: 104.236.85.149/api/v1/articles/?query=sydney
+Example query: http://104.236.85.149:5000/api/v1/articles/?query=sydney
 
 
 ### Build
@@ -46,6 +46,6 @@ To import the db to compose:
 
 Once the server is running, for example a query for the word `sydney` on bbc.com can be made at the enpoint:
 
-`104.236.85.149/api/v1/articles/?query=sydney`
+`http://104.236.85.149:5000/api/v1/articles/?query=sydney`
 
 
