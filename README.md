@@ -11,6 +11,7 @@ Example query: 104.236.85.149/api/v1/articles/?query=sydney
 Requirements:
 
 `mongo`: https://docs.mongodb.com/getting-started/shell/installation/
+
 `pip`: `wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py`
 
 Pip modules (`make install` should also install these)
