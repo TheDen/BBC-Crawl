@@ -2,7 +2,7 @@
 
 Scrapes articles from www.bbc.com using `scrapy`, and creates an api using `flask` to query the articles for keywords.
 
-Live version: http://104.236.85.149:5000
+Live version: ~~http://104.236.85.149:5000~~ hosting costs money :(
 
 Example query: http://104.236.85.149:5000/api/v1/articles/?query=sydney
 
