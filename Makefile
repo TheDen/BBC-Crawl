@@ -20,11 +20,10 @@ clean:
 	rm $(OUTPUTFILE)
 
 db-import:
-	mongoimport -u $(USER)- p $(PASS)--port 16943 --db $(DB) --collection $(COLLECTION) --ssl --sslCAFile $(SSLCERT) --host $(HOST) --file $(OUTPUTFILE) --jsonArray --drop --batchSize=1
+	mongoimport -h $(HOST) -d $(DB) -c $(COLLECTION) -u $(USER) -p $(PASS) --file $(OUTPUTFILE) --jsonArray
 
 test:
 	./flaskr_tests.py
 
 install: 
 	pip install -r requirements.txt
-	pip install git+git://github.com/robmcdan/python-goose.git

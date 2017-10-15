@@ -1,10 +1,10 @@
-# scrape
+# BBC-Crawl
 
 Scrapes articles from www.bbc.com using `scrapy`, and creates an api using `flask` to query the articles for keywords.
 
-Live version: ~~http://104.236.85.149:5000~~ hosting costs money :(
+Live version: https://bbc-crawl.herokuapp.com/
 
-Example query: http://104.236.85.149:5000/api/v1/articles/?query=sydney
+Example query: https://bbc-crawl.herokuapp.com/api/v1/articles/?query=sydney
 
 
 ### Build
@@ -17,8 +17,8 @@ Requirements:
 Pip modules (`make install` should also install these)
 ```
 pip install -r requirements.txt
-pip install git+git://github.com/robmcdan/python-goose.git
 ```
+
 Ubuntu might need certain prereqs:
 ```
 sudo apt-get update
@@ -31,9 +31,9 @@ For a very simple test on localhost: `./flaskr_tests.py`
 
 ### Run
 
-`MONGODB_URL` needs to be exported to connect to the compose db:
+`MONGODB_URL` needs to be exported to connect to the mlab db:
 
-`export MONGODB_URL=mongodb://$username:$password@aws-us-east-1-portal.9.dblayer.com:16943/admin`
+`export MONGODB_URL=mongodb://$user:$pass@$db.mlab.com:$port/bbc`
 
 To run the spider:
 
@@ -43,7 +43,7 @@ To start the server:
 
 `make run-server`
 
-To import the db to compose:
+To import the output file to a remote db:
 
 `db-import`
 
@@ -51,6 +51,4 @@ To import the db to compose:
 
 Once the server is running, for example a query for the word `sydney` on bbc.com can be made at the enpoint:
 
-http://104.236.85.149:5000/api/v1/articles/?query=sydney
-
-
+https://bbc-crawl.herokuapp.com/api/v1/articles/?query=sydney
