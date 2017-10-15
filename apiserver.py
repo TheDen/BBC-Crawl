@@ -13,15 +13,16 @@ from flask import render_template
 # grab creds from the env var
 MONGODB_URL = os.environ.get('MONGODB_URL')
 # load client with ssl certificate
+
 try:
-  client = MongoClient(MONGODB_URL,ssl_ca_certs="./sslfile.cert")
+  client = MongoClient(MONGODB_URL)
 except:
   print "err: can't connect to db. Make sure MONGODB_URL is set"
   sys.exit()
 
 # check db collecion, load it into memory
-db = client.admin
-collection = db.bbcdata
+db = client.bbc
+collection = db.data
 try:
   data = list(collection.find())
 except:
