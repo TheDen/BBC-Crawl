@@ -1,8 +1,8 @@
-pymongo
-Flask
-Flask_RESTful
-Flask_Testing
+pymongo==3.4.0
+Flask==0.12
+Flask_RESTful==0.3.5
+Flask_Testing==0.6.1
 beautifulsoup4
-git+git://github.com/robmcdan/python-goose.git
-requests
-Scrapy
+git+git://github.com/grangier/python-goose.git
+requests==2.3.0
+Scrapy==1.3.0
