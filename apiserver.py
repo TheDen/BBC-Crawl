@@ -46,18 +46,18 @@ def get_matches():
    if not query:
      return flask.jsonify(error=404, text="empty query"), 404
 
-   objectid = []
+   objectsid = []
    j = 0
    # look for can insensitive search text in headline and article
    for i in data:
     if query.lower() in i.values()[0].lower() or query.lower() in i.values()[3].lower():
-     objectid.append(j)
+     objectsid.append(j)
     j += 1
 
-   if len(objectid) == 0:
+   if len(objectsid) == 0:
      return flask.jsonify(error=404, text="no match"), 200
    resp = []
-   for i in objectid:
+   for i in objectsid:
     resp.append(json.dumps({'url': data[i].values()[1] , 'headline': data[i].values()[0], 'article': data[i].values()[3] }))
 
    # fix string to make it valid json
