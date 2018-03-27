@@ -50,15 +50,15 @@ def get_matches():
    j = 0
    # look for can insensitive search text in headline and article
    for i in data:
-    if query.lower() in i.values()[0].lower() or query.lower() in i.values()[3].lower():
-     objectsid.append(j)
-    j += 1
+     if query.lower() in i.values()[0].lower() or query.lower() in i.values()[3].lower():
+      objectsid.append(j)
+     j += 1
 
    if len(objectsid) == 0:
      return flask.jsonify(error=404, text="no match"), 200
    resp = []
    for i in objectsid:
-    resp.append(json.dumps({'url': data[i].values()[1] , 'headline': data[i].values()[0], 'article': data[i].values()[3] }))
+     resp.append(json.dumps({'url': data[i].values()[1] , 'headline': data[i].values()[0], 'article': data[i].values()[3] }))
 
    # fix string to make it valid json
    response_str = json.dumps(resp, sort_keys=False, separators=(',', ':')).replace('["','[').replace('"]',']').replace("\\\"", "\"").replace("\\\\\"", "\\\"").replace("}\"", "}").replace("\"{", "{")
@@ -67,5 +67,5 @@ def get_matches():
    return response
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host='0.0.0.0', port=port)

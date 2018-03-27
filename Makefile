@@ -9,9 +9,9 @@ SSLCERT=
 HOST=
 OUTPUTFILE=
 run-spider:
-	scrapy runspider spider.py --output=$(OUTPUTFILE)  
+	scrapy runspider spider.py --output=$(OUTPUTFILE)
 
-run-server:  
+run-server:
 	# Creating new function...
 	./apiserver.py
 
@@ -25,5 +25,5 @@ db-import:
 test:
 	./flaskr_tests.py
 
-install: 
+install:
 	pip install -r requirements.txt
